@@ -6,15 +6,18 @@
 # O(n^m) in time and O(m) in space before memoisation
 
 
-def cansum(targetsum, numbers):
+def cansum(targetsum, numbers, memo = {}):
     if targetsum == 0: return True
+    if targetsum in memo: return True
     
     for num in numbers:
         if targetsum >= num:
             remainder = targetsum - num
-            if cansum(remainder, numbers) == True: return True
+            if cansum(remainder, numbers, memo) == True: 
+                memo[remainder] = True
+                return memo[remainder]
     
     return False
 
 
-print(cansum(7,[5,3,4,7]))
+print(cansum(300,[7,14]))
