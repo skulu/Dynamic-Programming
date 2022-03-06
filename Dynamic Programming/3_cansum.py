@@ -4,19 +4,21 @@
 
 # let n = len(numbers) and m = targetsum
 # O(n^m) in time and O(m) in space before memoisation
+# O(n*m) in time and O(m) in space after memoisation
 
 
 def cansum(targetsum, numbers, memo = {}):
     if targetsum == 0: return True
-    if targetsum in memo: return True
+    if targetsum < 0: return False
+    if targetsum in memo: return memo[targetsum]
     
     for num in numbers:
-        if targetsum >= num:
-            remainder = targetsum - num
-            if cansum(remainder, numbers, memo) == True: 
-                memo[remainder] = True
-                return memo[remainder]
+        remainder = targetsum - num
+        if cansum(remainder, numbers, memo) == True:
+            memo[targetsum] = True
+            return True
     
+    memo[targetsum] = False
     return False
 
 
