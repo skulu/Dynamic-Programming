@@ -15,4 +15,7 @@ def fib(n, memo = None):
     memo[n] = fib(n-2, memo) + fib(n-1, memo)
     return memo[n]
 
+print(fib(6))
+print(fib(7))
+print(fib(8))
 print(fib(50))
