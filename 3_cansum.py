@@ -7,7 +7,8 @@
 # O(n*m) in time and O(m) in space after memoisation
 
 
-def cansum(targetsum, numbers, memo = {}):
+def cansum(targetsum, numbers, memo = None):
+    if memo is None: memo = {} # don't use mutables in function definition for python!!
     if targetsum == 0: return True
     if targetsum < 0: return False
     if targetsum in memo: return memo[targetsum]
