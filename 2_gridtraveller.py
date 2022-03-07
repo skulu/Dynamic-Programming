@@ -9,7 +9,8 @@
 # you only need to go through n*m permutations of nodes and do not need to \
 # repeat the same cases.
 
-def gridtraveller(n, m, memo = {}):
+def gridtraveller(n, m, memo = None):
+    if memo is None: memo = {} # don't use mutables in function definition for python!!
     # since (n,m) and (m,n) cases are interchangeable, we can optimise the key 
     # storage further.
     if n <= m : 
@@ -25,5 +26,9 @@ def gridtraveller(n, m, memo = {}):
     memo[key] = gridtraveller(n-1,m,memo) + gridtraveller(n,m-1,memo)
     return memo[key]
 
+print(gridtraveller(1,1))
+print(gridtraveller(2,3))
+print(gridtraveller(3,2))
+print(gridtraveller(3,3))
 print(gridtraveller(18,18))
 
