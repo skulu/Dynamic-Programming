@@ -8,7 +8,8 @@
 # 2. Check base cases
 # 3. Store new case in memo
 
-def fib(n, memo = {}):
+def fib(n, memo = None):
+    if memo is None: memo = {} # don't use mutables in function definition for python!!
     if n <= 2: return 1
     if n in memo: return memo[n]
     memo[n] = fib(n-2, memo) + fib(n-1, memo)
