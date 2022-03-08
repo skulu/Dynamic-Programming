@@ -5,7 +5,7 @@
 # Before memoization:
 # O(n^m * m) in time. Extra multiplication in m to account for longest possible combination when \
 # you do a copy of the list in line 29. Copy will need to access each element of the list.
-# O(m) in space.
+# O(m^2) in space.
 # 
 # After memoization:
 # O(n*m^2) in time. Extra multiplication in m to account for longest possible combination when you 
