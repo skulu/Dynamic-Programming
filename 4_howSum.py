@@ -17,9 +17,9 @@ def howSum(targetSum, numbers, memo = None):
     
     for num in numbers:
         remainder = targetSum - num
-        result =  howSum(remainder, numbers, memo)
-        if result is not None:
-            memo[targetSum] = [num] + result
+        remainderResult =  howSum(remainder, numbers, memo)
+        if remainderResult is not None:
+            memo[targetSum] = [num] + remainderResult
             return memo[targetSum]
     
     memo[targetSum] = None
