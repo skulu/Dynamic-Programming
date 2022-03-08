@@ -5,19 +5,16 @@ def bestSum(targetSum, numbers):
     if targetSum == 0: return []
     elif targetSum < 0: return None
     
-    shortestCombination = []
+    shortestCombination = None
     for num in numbers:
         remainder = targetSum - num
         remainderCombination = bestSum(remainder, numbers)
         if remainderCombination is not None:
             combination = [num] + remainderCombination
-            if (len(combination) < len(shortestCombination)) or len(shortestCombination) == 0:
+            if (shortestCombination is None) or (len(combination) < len(shortestCombination)):
                 shortestCombination = combination
 
-    if len(shortestCombination) > 0:
-        return shortestCombination
-    else:
-        return None
+    return shortestCombination
 
 # print(bestSum(4,[2,2]))
 print(bestSum(7,[5,3,4,7]))
