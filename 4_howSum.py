@@ -5,7 +5,9 @@
 # let n = len(numbers) and m = targetsum
 # O(n^m * m) in time, the extra m is for the copying of the list in line 20, 
 # and O(m) in space before memoisation
-# O(n*m) in time and O(m) in space after memoisation
+# O(n*m^2) in time where the extra m is due to copying of the list in line 20.
+# O(m^2) in space as your memo object now stores at most m items and each item 
+# is at most m length to sum up to targetSum
 
 def howSum(targetSum, numbers, memo = None):
     if memo is None: memo = {} # don't use mutables in function definition!!
