@@ -3,7 +3,8 @@
 # reuse the numbers as many times as you wish.
 
 # let n = len(numbers) and m = targetsum
-# O(n^m) in time and O(m) in space before memoisation
+# O(n^m) in time and O(m) in space before memoisation. In general, time will be exponential 
+#   --> (branching factor) ^ (height of tree).
 # O(n*m) in time and O(m) in space after memoisation
 
 
