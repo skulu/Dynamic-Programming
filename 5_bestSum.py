@@ -12,15 +12,12 @@
 # do a copy of the list in line 29. Copy will need to access each element of the list.
 # O(m^2) in space as combination is m in length at worst.
 
-
-
 def bestSum(targetSum, numbers, memo = None):
     if memo is None: memo = {}
 
     if targetSum in memo: return memo[targetSum]
     elif targetSum == 0: return []
     elif targetSum < 0: return None
-
     
     shortestCombination = None
     for num in numbers:
