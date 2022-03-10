@@ -16,6 +16,10 @@
 # Time complexity is O(n*m^2).
 # Space complexity is O(m^2).
 
+## Note ##
+# Python doesn't seem to run into exponential time complexity for the last test case without 
+# memoization.
+
 
 def canConstruct(target, wordBank, memo = {}):
     if memo is None: memo = {}
