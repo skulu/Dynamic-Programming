@@ -27,15 +27,15 @@ def countConstruct(target, wordBank, memo = None):
     if target in memo: return memo[target]
     if target == '': return 1
     
-    result = 0 
+    numOfWays = 0 
     for word in wordBank:
         if target.startswith(word):
             # suffix = target.lstrip(word)
             suffix = target[len(word):]
-            result += countConstruct(suffix, wordBank, memo)
+            numOfWays += countConstruct(suffix, wordBank, memo)
 
-    memo[target] = result
-    return result
+    memo[target] = numOfWays
+    return numOfWays
 
 print(countConstruct('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd']))
 print(countConstruct('skateboard', ['bo', 'rd', 'ate', 't', 'ska', 'sk', 'boar']))
