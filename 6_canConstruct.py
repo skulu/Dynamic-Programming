@@ -18,7 +18,8 @@
 
 ## Note ##
 # Python doesn't seem to run into exponential time complexity for the last test case without 
-# memoization.
+# memoization if lstrip is used. If the string slicing is used instead then we get the expected 
+# slowdown.
 
 
 def canConstruct(target, wordBank, memo = {}):
@@ -30,6 +31,7 @@ def canConstruct(target, wordBank, memo = {}):
     for word in wordBank:
         if target.startswith(word):
             suffix = target.lstrip(word)
+            # suffix = target[len(word):]
             result = canConstruct(suffix, wordBank)
             if result == True: 
                 memo[target] = True
