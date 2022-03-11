@@ -23,5 +23,5 @@ def cansum(targetsum, numbers, memo = None):
     memo[targetsum] = False
     return False
 
-
+print(cansum(7,[5,3,4]))
 print(cansum(300,[7,14]))
