@@ -9,7 +9,7 @@
 # let n = len(wordBank) and m = len(target)
 #
 # Before memoization:
-# Time complexity is O(n^m * m) because the strip function needs to iterate through the string.
+# Time complexity is O(n^m * m) because the suffix line needs to iterate through the string.
 # Space complexity is O(m^2) because the second m is required to store the suffix at worst case. 
 # 
 # After memoization:
