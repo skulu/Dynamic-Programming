@@ -16,11 +16,6 @@
 # Time complexity is O(n*m^2).
 # Space complexity is O(m^2).
 
-## Note ##
-# Python doesn't seem to run into exponential time complexity for the last test case without 
-# memoization if lstrip is used. If the string slicing method is used instead then we get the 
-# expected slowdown.
-
 def countConstruct(target, wordBank, memo = None):
     if memo is None: memo = {}
     
@@ -30,7 +25,6 @@ def countConstruct(target, wordBank, memo = None):
     numOfWays = 0 
     for word in wordBank:
         if target.startswith(word):
-            # suffix = target.lstrip(word)
             suffix = target[len(word):]
             numOfWays += countConstruct(suffix, wordBank, memo)
 
