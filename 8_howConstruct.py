@@ -24,21 +24,25 @@
 # Time complexity is O(n*m^2).
 # Space complexity is O(m^2).
 
-def howConstruct(target, wordBank):
-    
-    if target == '': return [[]]
+def howConstruct(target, wordBank, memo = None):
+    if memo is None: memo = {}
+
+    if target in memo: return memo[target]
+    elif target == '': return [[]]
     
     result = []
     for word in wordBank:
         if target.startswith(word):
             suffix = target[len(word):]
-            suffixWays = howConstruct(suffix, wordBank)
+            suffixWays = howConstruct(suffix, wordBank, memo)
             for i in range(len(suffixWays)):
                 result.append([word] + suffixWays[i])
 
+    memo[target] = result
     return result
 
 print(howConstruct('', ['purp', 'p', 'ur', 'le', 'purpl']))
 print(howConstruct('purple', ['purp', 'p', 'ur', 'le', 'purpl']))
 print(howConstruct('abcdef',['ab', 'abc', 'cd', 'def', 'abcd', 'ef', 'c']))
 print(howConstruct('skateboard', ['bo', 'rd', 'ate', 't', 'ska', 'sk', 'boar']))
+print(howConstruct('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef', ['e','ee','eee','eeee','eeeee','eeeeee']))
