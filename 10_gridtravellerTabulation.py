@@ -9,9 +9,7 @@ def gridTraveller(n,m):
 
     for i in range(1,len(grid)):
         for j in range(1,len(grid[0])):
-            if i > 0 and j > 0: grid[i][j] += grid[i-1][j] + grid[i][j-1]
-            elif i == 0 and j > 0: grid[i][j] += grid[i][j-1]
-            elif i > 0 and j == 0: grid[i-1][j] += grid[i][j]
+            grid[i][j] += grid[i-1][j] + grid[i][j-1]
 
     return grid[n][m]
 
