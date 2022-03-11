@@ -19,6 +19,8 @@
 #     return False
 
 ## 1D List solution ##
+# Let n be len(numbers), m be target.
+# O(n*m) time complexity, O(m) space complexity
 def canSum(target, numbers):
     table = [False for col in range(target+1)]
     table[0] = True # base case, then current amount + numbers[x] will also be True
