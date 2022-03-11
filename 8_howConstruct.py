@@ -16,13 +16,8 @@
 ## Complexity ##
 # let n = len(wordBank) and m = len(target)
 #
-# Before memoization:
-# Time complexity is O(n^m * m) because the suffix line needs to iterate through the string.
-# Space complexity is O(m^2) because the second m is required to store the suffix at worst case. 
-# 
-# After memoization:
-# Time complexity is O(n*m^2).
-# Space complexity is O(m^2).
+# 2D array of all results is always going to be exponential in worst case. Time complexity of 
+# O(n^m).
 
 def howConstruct(target, wordBank, memo = None):
     if memo is None: memo = {}
@@ -46,3 +41,4 @@ print(howConstruct('purple', ['purp', 'p', 'ur', 'le', 'purpl']))
 print(howConstruct('abcdef',['ab', 'abc', 'cd', 'def', 'abcd', 'ef', 'c']))
 print(howConstruct('skateboard', ['bo', 'rd', 'ate', 't', 'ska', 'sk', 'boar']))
 print(howConstruct('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef', ['e','ee','eee','eeee','eeeee','eeeeee']))
+# print(howConstruct('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', ['e','ee','eee','eeee','eeeee','eeeeee']))
