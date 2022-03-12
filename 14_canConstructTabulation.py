@@ -13,6 +13,7 @@ def canConstruct(target, wordBank):
         if table[i] == True:
             for word in wordBank:
                 if (i+len(word)) <= len(target) and target[i:i+len(word)] == word:
+                    # condition checks if word matches the letters starting at position i
                     table[i+len(word)] = True
     return table[len(target)]
 

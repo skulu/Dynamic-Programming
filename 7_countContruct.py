@@ -1,7 +1,7 @@
 ## Description ##
 # Returns the number of ways that the 'target' can be constructed by concatenating elements of the 
 # 'wordBank' array.
-# Returns false if 'target' can't be constructed.
+# Returns 0 if 'target' can't be constructed.
 # 
 # Reuse of elements in wordBank is allowed.
 
@@ -31,6 +31,7 @@ def countConstruct(target, wordBank, memo = None):
     memo[target] = numOfWays
     return numOfWays
 
+print(countConstruct('purple', ['purp', 'p', 'ur', 'le', 'purpl']))
 print(countConstruct('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd']))
 print(countConstruct('skateboard', ['bo', 'rd', 'ate', 't', 'ska', 'sk', 'boar']))
 print(countConstruct('enterapotentpot', ['a','p','ent','enter','ot','o','t']))
