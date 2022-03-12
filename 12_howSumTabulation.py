@@ -4,8 +4,8 @@ def howSum(target, numbers):
     table[0] = []
 
     for i in range(target):
-        for j in range(len(numbers)):
-            if table[i] is not None:
+        if table[i] is not None:
+            for j in range(len(numbers)):
                 sumWay = table[i] + [numbers[j]]
                 summation = sum(sumWay)
                 if summation <= target and table[summation] is None:
