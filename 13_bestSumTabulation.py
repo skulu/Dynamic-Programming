@@ -6,19 +6,15 @@ def bestSum(target, numbers):
 
     for i in range(target):
         if table[i] is not None:
-            for j in range(len(numbers)):
-                sumWay = table[i] + [numbers[j]]
+            for num in numbers:
+                sumWay = table[i] + [num]
                 summation = sum(sumWay)
-                if summation <= target and table[summation] is None: 
-                    # The table elements will always be filled first by the least number of 
-                    # elements possible as you count up from the first element of the 
-                    # table. Hence, don't insert unless that element is None.
+                if (summation <= target) and (table[summation] is None or len(table[summation]) > len(sumWay)): 
                     table[summation] = sumWay
     
     return table[target]
 
-print(bestSum(7,[2,3]))
 print(bestSum(7,[5,3,4,7]))
-print(bestSum(7,[2,4]))
 print(bestSum(8,[2,3,5]))
-print(bestSum(300,[7,14]))
+print(bestSum(8,[1,4,5]))
+print(bestSum(100,[1,2,5,25]))
